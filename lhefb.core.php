@@ -7,7 +7,7 @@
  
 class fb_embedded_posts {
 	
-	private $facebook_post_regex = "((http|https)://(www.|)facebook.com/([\w\.-_]*)/posts/(\d*))";
+	private $facebook_post_regex = array("post" => "((http|https)://(www.|)facebook.com/([\w\.-_]*)/posts/(\d*))", "photo" => "((http|https)://(www.|)facebook.com/photo.php\?fbid=(\d*))");
 	private $add_sdk_to_footer = false;
 	
 	/**
@@ -19,12 +19,14 @@ class fb_embedded_posts {
 	public function __construct(){
 		
 		// Register the embed Handler
-		wp_embed_register_handler(
-			'lh_facebook_post',				// An internal ID/name for the handler. Needs to be unique.
-			$this->get_regex(), 			// The regex that will be used to see if this handler should be used for a URL.
-			array($this, "generate_html"), 	// The callback function that will be called if the regex is matched.
-			10								// Used to specify the order in which the registered handlers will be tested (default: 10)
-		);
+		foreach($this->facebook_post_regex as $k => $f){
+			wp_embed_register_handler(
+				'lh_facebook_post_'.$k,				// An internal ID/name for the handler. Needs to be unique.
+				$this->get_regex($f), 			// The regex that will be used to see if this handler should be used for a URL.
+				array($this, "generate_html"), 	// The callback function that will be called if the regex is matched.
+				10								// Used to specify the order in which the registered handlers will be tested (default: 10)
+			);
+		}
 		
 		
 		// Init the settings api on admin_init
@@ -60,8 +62,8 @@ class fb_embedded_posts {
 	 * @access private
 	 * @return void
 	 */
-	private function get_regex(){
-		return "@".$this->facebook_post_regex."@i";
+	private function get_regex($regex){
+		return "@".$regex."@i";
 	}
 	
 	
