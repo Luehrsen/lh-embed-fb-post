@@ -5,7 +5,7 @@
  */
  
  
-class fb_embeeded_posts {
+class fb_embedded_posts {
 	
 	private $facebook_post_regex = "((http|https)://(www.|)facebook.com/(\w*)/posts/(\d*))";
 	private $add_sdk_to_footer = false;
