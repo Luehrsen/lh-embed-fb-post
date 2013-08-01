@@ -35,9 +35,6 @@ class fb_embedded_posts {
 
 		if($this->add_sdk_to_footer){
 			add_action('wp_footer', array($this, 'print_sdk_in_footer'));
-			if(get_option('fb_embed_app_id') == false or get_option('fb_embed_app_id') == ""){
-				add_action('admin_notices', array($this, 'app_id_warning'));
-			}
 		}
 		
 		// Actions
@@ -92,7 +89,9 @@ class fb_embedded_posts {
 		  window.fbAsyncInit = function() {
 		    // init the FB JS SDK
 		    FB.init({
+		    <?php if(get_option('fb_embed_app_id') == false or get_option('fb_embed_app_id') == ""): ?>
 		      appId      : '<?=get_option('fb_embed_app_id')?>',	// App ID from the app dashboard
+		    <?php endif; ?>
 		      channelUrl : '<?=LHEFB_FOLDER_URL?>/channel.php', 	// Channel file for x-domain comms
 		      status     : true,                                 	// Check Facebook Login status
 		      xfbml      : true                                  	// Look for social plugins on the page
@@ -198,42 +197,8 @@ class fb_embedded_posts {
 		?>
 			<fieldset>
 				<input type="text" name="fb_embed_app_id" value="<?=get_option('fb_embed_app_id')?>" class="regular-text">
-				<p class="description"> <?php _e("Add your Facebook App ID here. This is mandatory for the JS SDK (setting above) to work, but it might work without!", "lh"); ?>
+				<p class="description"> <?php _e('Add your <a href="https://developers.facebook.com/apps" target="_blank">Facebook App ID here</a>. This is recommended for the JS SDK (setting above) to work, but it will likely work without!', "lh"); ?>
 			</fieldset>
 		<?php
-	}
-	
-	/**
-	 * app_id_warning function.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function app_id_warning(){
-		global $current_user ;
-        $user_id = $current_user->ID;
-		if ( !get_user_meta($user_id, 'ignore_appid_notice') ): ?>
-			<div class="error">
-				<p>
-					<?php _e("You are using the Facebook JS SDK from the <i>Allfacebook.de Embed FB</i> Plugin without entering an App ID. The plugin will probably not work!", "lh") ?>
-					<a href="?ignore_appid_notice=0"> <?php _e("Yeah I know! Go away!", "lh"); ?> </a>
-				</p>
-			</div>
-		<?php endif;
-	}
-	
-	/**
-	 * check_ignored_notices function.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function check_ignored_notices() {
-		global $current_user;
-	    $user_id = $current_user->ID;
-	    /* If user clicks to ignore the notice, add that to their user meta */
-	    if ( isset($_GET['ignore_appid_notice']) && '0' == $_GET['ignore_appid_notice'] ) {
-	             add_user_meta($user_id, 'ignore_appid_notice', 'true', true);
-		}
 	}
 }
