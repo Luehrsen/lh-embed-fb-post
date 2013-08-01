@@ -38,7 +38,6 @@ class fb_embedded_posts {
 		}
 		
 		// Actions
-		add_action('admin_init', array($this, 'check_ignored_notices') );
 		add_action('plugins_loaded', array($this, 'load_i18n') );
 	}
 	
