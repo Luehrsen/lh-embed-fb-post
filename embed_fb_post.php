@@ -18,4 +18,4 @@ define('LHEFB_FILTER_PATH', plugin_dir_path(__FILE__));
 
 require_once("lhefb.core.php");
 
-$lh_fb_embed = new fb_embeeded_posts();
+$lh_fb_embed = new fb_embedded_posts();
