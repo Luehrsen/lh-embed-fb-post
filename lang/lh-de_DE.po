@@ -1,0 +1,72 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Allfacebook.de Embed FB v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-08-01 08:25:26+0000\n"
+"Last-Translator: admin <hl@luehrsen-heinrich.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: lhefb.core.php:107
+#@ lh
+msgid "en_US"
+msgstr "de_DE"
+
+#: lhefb.core.php:131
+#@ lh
+msgid "Facebook Post Embed"
+msgstr "Facebook Post Embed"
+
+#: lhefb.core.php:139
+#@ lh
+msgid "JS SDK"
+msgstr "JS SDK"
+
+#: lhefb.core.php:147
+#@ lh
+msgid "APP ID"
+msgstr "APP ID"
+
+#: lhefb.core.php:166
+#@ lh
+msgid "Brought to you by Allfacebook.de & Luehrsen // Heinrich. Have fun!"
+msgstr "Erstellt von Allfacebook.de & Luehrsen // Heinrich. Viel Spaß!"
+
+#: lhefb.core.php:180
+#@ lh
+msgid "Use the plugin JS SDK"
+msgstr "Benutze das JS SDK"
+
+#: lhefb.core.php:182
+#@ lh
+msgid "Check this, if you don't have a Facebook JS SDK on the page. (Maybe implemented in the theme, from another plugin, or similar) We don't want to load the SDK twice!"
+msgstr "Hake dies an, wenn du noch kein Facebook JS SDK auf der Seite hast. (Vielleicht von deinem Theme, oder einem anderen Plugin) Wir wollen das SDK ja nicht zwei mal laden."
+
+#: lhefb.core.php:199
+#@ lh
+msgid "Add your Facebook App ID here. This is mandatory for the JS SDK (setting above) to work, but it might work without!"
+msgstr "Gib deine Facebook App ID hier ein. Dies ist verpflichtend für die JS SDK (Einstellung drüber), aber es könnte auch ohne funktionieren."
+
+#: lhefb.core.php:216
+#@ lh
+msgid "You are using the Facebook JS SDK from the <i>Allfacebook.de Embed FB</i> Plugin without entering an App ID. The plugin will probably not work!"
+msgstr "Du nutzt das Facebook JS SDK des <i>Allfacebook.de Embed FB</i> Plugins ohne eine App ID. Das Plugin wird wahrscheinlich nicht funktionieren!"
+
+#: lhefb.core.php:217
+#@ lh
+msgid "Yeah I know! Go away!"
+msgstr "Ja, ich weiß. Geh weg!"
+
